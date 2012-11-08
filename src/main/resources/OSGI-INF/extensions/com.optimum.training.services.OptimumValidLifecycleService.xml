@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<component name="com.optimum.training.services.OptimumValidLifecycleService"
+  version="1.0">
+
+  <implementation
+    class="com.optimum.training.services.OptimumValidLifecycleServiceImpl" />
+
+  <service>
+    <provide
+      interface="com.optimum.training.services.OptimumValidLifecycleService" />
+  </service>
+
+  <extension-point name="validLifecycleStates">
+
+    <documentation>
+      <pre>
+        Defines the life cycle states considered as "valid".
+      </pre>
+      <code>
+        <validLifecycleStates name="contrib1">
+          <validLifecycleState>new</validLifecycleState>
+          <validLifecycleState>active</validLifecycleState>
+        </validLifecycleStates>
+      </code>
+    </documentation>
+    <object
+      class="com.optimum.training.services.OptimumValidLifecycleDescriptor" />
+
+  </extension-point>
+
+</component>

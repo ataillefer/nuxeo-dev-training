@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<component
+  name="com.optimum.training.services.OptimumValidLifecycleService.contrib.test">
+
+  <extension
+    target="com.optimum.training.services.OptimumValidLifecycleService"
+    point="validLifecycleStates">
+
+    <validLifecycleStates name="contrib1">
+      <validLifecycleState>new</validLifecycleState>
+      <validLifecycleState>active</validLifecycleState>
+    </validLifecycleStates>
+
+  </extension>
+
+</component>

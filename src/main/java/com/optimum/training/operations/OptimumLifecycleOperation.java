@@ -45,21 +45,24 @@ public class OptimumLifecycleOperation {
     @Context
     protected CoreSession session;
 
-    @Param(name = "publicationPath")
-    protected String publicationPath;
+    @Param(name = "archivePath")
+    protected String archivePath;
 
     @OperationMethod
     public DocumentModel run(DocumentModel input) throws ClientException {
+
+        DocumentModel archivedDoc = input;
         OptimumValidLifecycleService validLifecycleService = Framework.getLocalService(OptimumValidLifecycleService.class);
         if (validLifecycleService.getValidLifeCycleStates().contains(
                 input.getCurrentLifeCycleState())) {
-            DocumentModel publicationDoc = session.getDocument(new PathRef(
-                    publicationPath));
-            session.publishDocument(input, publicationDoc);
+            DocumentModel archiveFolder = session.getDocument(new PathRef(
+                    archivePath));
+            archivedDoc = session.move(input.getRef(), archiveFolder.getRef(),
+                    null);
         } else {
-            log.warn("Lifecycle is not valid, can not publish document");
+            log.warn("Lifecycle is not valid, can not archive document");
         }
-        return null;
+        return archivedDoc;
     }
 
 }

@@ -27,10 +27,6 @@ import org.nuxeo.ecm.automation.core.annotations.Param;
 import org.nuxeo.ecm.core.api.ClientException;
 import org.nuxeo.ecm.core.api.CoreSession;
 import org.nuxeo.ecm.core.api.DocumentModel;
-import org.nuxeo.ecm.core.api.PathRef;
-import org.nuxeo.runtime.api.Framework;
-
-import com.optimum.training.services.OptimumValidLifecycleService;
 
 /**
  * @author Antoine Taillefer (ataillefer@nuxeo.com)
@@ -51,18 +47,8 @@ public class OptimumLifecycleOperation {
     @OperationMethod
     public DocumentModel run(DocumentModel input) throws ClientException {
 
-        DocumentModel archivedDoc = input;
-        OptimumValidLifecycleService validLifecycleService = Framework.getLocalService(OptimumValidLifecycleService.class);
-        if (validLifecycleService.getValidLifeCycleStates().contains(
-                input.getCurrentLifeCycleState())) {
-            DocumentModel archiveFolder = session.getDocument(new PathRef(
-                    archivePath));
-            archivedDoc = session.move(input.getRef(), archiveFolder.getRef(),
-                    null);
-        } else {
-            log.warn("Lifecycle is not valid, can not archive document");
-        }
-        return archivedDoc;
+        // TODO
+        return null;
     }
 
 }

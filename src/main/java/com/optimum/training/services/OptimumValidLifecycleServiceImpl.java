@@ -17,7 +17,6 @@
 
 package com.optimum.training.services;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -40,8 +39,6 @@ public class OptimumValidLifecycleServiceImpl extends DefaultComponent
 
     protected static final String VALID_LIFECYCLE_STATES_EXTENSION_POINT = "validLifecycleStates";
 
-    protected List<String> validLifeCycleStates = new ArrayList<String>();
-
     @Override
     public void registerContribution(Object contribution,
             String extensionPoint, ComponentInstance contributor)
@@ -58,40 +55,23 @@ public class OptimumValidLifecycleServiceImpl extends DefaultComponent
     protected final void registerValidLifecycleStates(
             OptimumValidLifecycleDescriptor contribution) {
 
-        for (String validLifecycleState : contribution.getValidLifecycleStates()) {
-            validLifeCycleStates.add(validLifecycleState);
-        }
+        // TODO
 
     }
 
     @Override
     public List<String> getValidLifeCycleStates() {
-        return validLifeCycleStates;
+        // TODO
+        return null;
     }
 
     @Override
     public DocumentModelList getValidDocuments(String type, CoreSession session)
             throws ClientException {
 
-        String query = String.format(
-                "select * from %s where ecm:currentLifeCycleState in (%s)",
-                type, getQuotedValidLifecycleStates());
-        log.debug(query);
-        return session.query(query);
+        // TODO
+        return null;
 
-    }
-
-    protected String getQuotedValidLifecycleStates() {
-        StringBuilder sb = new StringBuilder();
-        for (String validLifecycleState : getValidLifeCycleStates()) {
-            if (sb.length() > 0) {
-                sb.append(",");
-            }
-            sb.append("'");
-            sb.append(validLifecycleState);
-            sb.append("'");
-        }
-        return sb.toString();
     }
 
 }

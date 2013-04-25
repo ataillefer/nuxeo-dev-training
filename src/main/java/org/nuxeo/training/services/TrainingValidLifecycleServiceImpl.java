@@ -15,7 +15,7 @@
  *     Antoine Taillefer
  */
 
-package com.optimum.training.services;
+package org.nuxeo.training.services;
 
 import java.util.List;
 
@@ -30,12 +30,12 @@ import org.nuxeo.runtime.model.DefaultComponent;
 /**
  * @author Antoine Taillefer (ataillefer@nuxeo.com)
  */
-public class OptimumValidLifecycleServiceImpl extends DefaultComponent
-        implements OptimumValidLifecycleService {
+public class TrainingValidLifecycleServiceImpl extends DefaultComponent
+        implements TrainingValidLifecycleService {
 
     private static final long serialVersionUID = 1170905776749379666L;
 
-    private static final Log log = LogFactory.getLog(OptimumValidLifecycleServiceImpl.class);
+    private static final Log log = LogFactory.getLog(TrainingValidLifecycleServiceImpl.class);
 
     protected static final String VALID_LIFECYCLE_STATES_EXTENSION_POINT = "validLifecycleStates";
 
@@ -45,15 +45,15 @@ public class OptimumValidLifecycleServiceImpl extends DefaultComponent
             throws Exception {
 
         if (VALID_LIFECYCLE_STATES_EXTENSION_POINT.equals(extensionPoint)) {
-            if (contribution instanceof OptimumValidLifecycleDescriptor) {
-                registerValidLifecycleStates((OptimumValidLifecycleDescriptor) contribution);
+            if (contribution instanceof TrainingValidLifecycleDescriptor) {
+                registerValidLifecycleStates((TrainingValidLifecycleDescriptor) contribution);
             }
         }
         super.registerContribution(contribution, extensionPoint, contributor);
     }
 
     protected final void registerValidLifecycleStates(
-            OptimumValidLifecycleDescriptor contribution) {
+            TrainingValidLifecycleDescriptor contribution) {
 
         // TODO
 

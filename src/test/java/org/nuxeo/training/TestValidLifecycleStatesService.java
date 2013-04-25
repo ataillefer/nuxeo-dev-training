@@ -14,7 +14,7 @@
  * Contributors:
  *     Antoine Taillefer
  */
-package com.optimum.training;
+package org.nuxeo.training;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -34,9 +34,9 @@ import org.nuxeo.runtime.test.runner.Deploy;
 import org.nuxeo.runtime.test.runner.Features;
 import org.nuxeo.runtime.test.runner.FeaturesRunner;
 import org.nuxeo.runtime.test.runner.LocalDeploy;
+import org.nuxeo.training.services.TrainingValidLifecycleService;
 
 import com.google.inject.Inject;
-import com.optimum.training.services.OptimumValidLifecycleService;
 
 /**
  * Tests the Contrat document type.
@@ -45,15 +45,15 @@ import com.optimum.training.services.OptimumValidLifecycleService;
  */
 @RunWith(FeaturesRunner.class)
 @Features(CoreFeature.class)
-@Deploy({ "studio.extensions.ataillefer-SANDBOX", "optimum-training" })
-@LocalDeploy("optimum-training:test-valid-lifecyclestates-contrib.xml")
+@Deploy({ "studio.extensions.ataillefer-SANDBOX", "nuxeo-dev-training" })
+@LocalDeploy("nuxeo-dev-training:test-valid-lifecyclestates-contrib.xml")
 public class TestValidLifecycleStatesService {
 
     @Inject
     protected CoreSession session;
 
     @Inject
-    protected OptimumValidLifecycleService ovls;
+    protected TrainingValidLifecycleService tvls;
 
     @Inject
     protected EventServiceAdmin eventAdminService;
@@ -66,7 +66,7 @@ public class TestValidLifecycleStatesService {
     @Test
     public void testValidLifeCycleStatesService() throws ClientException {
 
-        List<String> validLifeCycleStates = ovls.getValidLifeCycleStates();
+        List<String> validLifeCycleStates = tvls.getValidLifeCycleStates();
         assertNotNull(validLifeCycleStates);
         assertEquals(2, validLifeCycleStates.size());
         assertEquals("new", validLifeCycleStates.get(0));
@@ -85,7 +85,7 @@ public class TestValidLifecycleStatesService {
         contrat3.followTransition("toClosed");
         session.save();
 
-        DocumentModelList dml = ovls.getValidDocuments("Contrat", session);
+        DocumentModelList dml = tvls.getValidDocuments("Contrat", session);
         assertNotNull(dml);
         assertEquals(2, dml.size());
     }

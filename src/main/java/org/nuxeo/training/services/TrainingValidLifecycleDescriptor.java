@@ -14,7 +14,7 @@
  * Contributors:
  *     ataillefer
  */
-package com.optimum.training.services;
+package org.nuxeo.training.services;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ import org.nuxeo.common.xmap.annotation.XObject;
  * @since 5.6
  */
 @XObject("validLifecycleStates")
-public class OptimumValidLifecycleDescriptor {
+public class TrainingValidLifecycleDescriptor {
 
     @XNode("@name")
     public String name;

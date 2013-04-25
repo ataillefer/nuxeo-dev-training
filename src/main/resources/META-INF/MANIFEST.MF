@@ -3,11 +3,12 @@ Bundle-Vendor: Nuxeo
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .
 Bundle-Version: 1.0
-Bundle-Name: optimum-training
+Bundle-Name: nuxeo-dev-training
 Bundle-ManifestVersion: 2
-Nuxeo-Component: OSGI-INF/extensions/com.optimum.training.actions.Opti
- mumActionsBean.xml,OSGI-INF/extensions/com.optimum.training.services.
- OptimumValidLifecycleService.xml
-Bundle-SymbolicName: optimum-training
+Nuxeo-Component: OSGI-INF/extensions/org.nuxeo.training.actions.Traini
+ ngActionsBean.xml,OSGI-INF/extensions/org.nuxeo.training.services.Tra
+ iningValidLifecycleService.xml,OSGI-INF/extensions/org.nuxeo.training
+ .operations.TrainingLifecycleOperation.xml
+Bundle-SymbolicName: nuxeo-dev-training
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 

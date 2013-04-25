@@ -15,7 +15,7 @@
  *     Antoine Taillefer
  */
 
-package com.optimum.training.operations;
+package org.nuxeo.training.operations;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -31,12 +31,12 @@ import org.nuxeo.ecm.core.api.DocumentModel;
 /**
  * @author Antoine Taillefer (ataillefer@nuxeo.com)
  */
-@Operation(id = OptimumLifecycleOperation.ID, category = Constants.CAT_DOCUMENT, label = "OptimumLifecycleOperation", description = "")
-public class OptimumLifecycleOperation {
+@Operation(id = TrainingLifecycleOperation.ID, category = Constants.CAT_DOCUMENT, label = "TrainingLifecycleOperation", description = "")
+public class TrainingLifecycleOperation {
 
-    private static final Log log = LogFactory.getLog(OptimumLifecycleOperation.class);
+    private static final Log log = LogFactory.getLog(TrainingLifecycleOperation.class);
 
-    public static final String ID = "OptimumLifecycleOperation";
+    public static final String ID = "TrainingLifecycleOperation";
 
     @Context
     protected CoreSession session;

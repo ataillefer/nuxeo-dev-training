@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 
-<component name="com.optimum.training.services.OptimumValidLifecycleService"
+<component name="org.nuxeo.training.training.services.TrainingValidLifecycleService"
   version="1.0">
 
   <implementation
-    class="com.optimum.training.services.OptimumValidLifecycleServiceImpl" />
+    class="org.nuxeo.training.training.services.TrainingValidLifecycleServiceImpl" />
 
   <service>
     <provide
-      interface="com.optimum.training.services.OptimumValidLifecycleService" />
+      interface="org.nuxeo.training.training.services.TrainingValidLifecycleService" />
   </service>
 
   <extension-point name="validLifecycleStates">
@@ -25,7 +25,7 @@
       </code>
     </documentation>
     <object
-      class="com.optimum.training.services.OptimumValidLifecycleDescriptor" />
+      class="org.nuxeo.training.training.services.TrainingValidLifecycleDescriptor" />
 
   </extension-point>
 

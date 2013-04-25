@@ -1,0 +1,8 @@
+<component name="org.nuxeo.training.training.operations.TrainingLifecycleOperation">
+
+  <extension target="org.nuxeo.ecm.core.operation.TrainingServiceCoamponent"
+    point="operations" >
+      <operation class="org.nuxeo.training.training.operations.TrainingLifecycleOperation" />
+   </extension>
+    
+</component>

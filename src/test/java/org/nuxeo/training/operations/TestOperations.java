@@ -15,7 +15,7 @@
  *     Thomas Roger <troger@nuxeo.com>
  */
 
-package com.optimum.training.operations;
+package org.nuxeo.training.operations;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -44,8 +44,8 @@ import com.google.inject.Inject;
 @RunWith(FeaturesRunner.class)
 @Features(CoreFeature.class)
 @Deploy({ "org.nuxeo.ecm.automation.core", "org.nuxeo.ecm.automation.features",
-        "studio.extensions.ataillefer-SANDBOX", "optimum-training" })
-@LocalDeploy("optimum-training:test-valid-lifecyclestates-contrib.xml")
+        "studio.extensions.ataillefer-SANDBOX", "nuxeo-dev-training" })
+@LocalDeploy("nuxeo-dev-training:test-valid-lifecyclestates-contrib.xml")
 public class TestOperations {
 
     @Inject
@@ -84,7 +84,7 @@ public class TestOperations {
 
         ctx.setInput(contrat1);
         String archiveFolderPath = archiveFolder.getPathAsString();
-        chain.add(OptimumLifecycleOperation.ID).set("archivePath",
+        chain.add(TrainingLifecycleOperation.ID).set("archivePath",
                 archiveFolderPath);
 
         DocumentModel result = (DocumentModel) automationService.run(ctx, chain);
@@ -92,7 +92,7 @@ public class TestOperations {
         assertEquals("/archives/contrat1", result.getPathAsString());
 
         ctx.setInput(contrat2);
-        chain.add(OptimumLifecycleOperation.ID).set("archivePath",
+        chain.add(TrainingLifecycleOperation.ID).set("archivePath",
                 archiveFolderPath);
 
         result = (DocumentModel) automationService.run(ctx, chain);

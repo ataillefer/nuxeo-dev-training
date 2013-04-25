@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <component
-  name="com.optimum.training.services.OptimumValidLifecycleService.contrib.test">
+  name="org.nuxeo.training.training.services.TrainingValidLifecycleService.contrib.test">
 
   <extension
-    target="com.optimum.training.services.OptimumValidLifecycleService"
+    target="org.nuxeo.training.training.services.TrainingValidLifecycleService"
     point="validLifecycleStates">
 
     <validLifecycleStates name="contrib1">

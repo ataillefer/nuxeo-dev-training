@@ -14,7 +14,7 @@
  * Contributors:
  *     Antoine Taillefer
  */
-package com.optimum.training.services;
+package org.nuxeo.training.services;
 
 import java.io.Serializable;
 import java.util.List;
@@ -26,7 +26,7 @@ import org.nuxeo.ecm.core.api.DocumentModelList;
 /**
  * @author Antoine Taillefer (ataillefer@nuxeo.com)
  */
-public interface OptimumValidLifecycleService extends Serializable {
+public interface TrainingValidLifecycleService extends Serializable {
 
     List<String> getValidLifeCycleStates();
 
